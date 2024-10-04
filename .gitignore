@@ -20,8 +20,5 @@ output/
 output/*
 output
 
-# Ignorar arquivos JSON
-*.json
-
 # Ignorar arquivos BIN
 *.bin
