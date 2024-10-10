@@ -1,7 +1,9 @@
 //Feito por: Lucas Garcia E Luis Augusto
 #include "ArvoreBinariaDinamica.h"
 
-//=================================================
+/**
+ * @brief Abre um arquivo no modo especificado.
+ */
 FILE *abrirArquivo(char *nomeArq, char *modo) {
     FILE *arq = fopen(nomeArq, modo);
     if (arq == NULL) {
@@ -12,29 +14,36 @@ FILE *abrirArquivo(char *nomeArq, char *modo) {
     return arq;
 }
 
-//=================================================
+/**
+ * @brief Calcula e exibe o tempo de execução.
+ */
 void calcularTempo(double ini, double fim) {
     double tempoDecorrido = (double)(fim - ini) / CLOCKS_PER_SEC;
     printf("Tempo de execucao: %f segundos\n", tempoDecorrido);
 }
 
-//=================================================
+/**
+ * @brief Salva os dados dos nós da árvore em um arquivo.
+ */
 void salvarDadosNoArquivo(NoArvore *no, FILE *arquivoLista) {
     if (no == NULL) return;
 
-    // Salvar os dados em ordem
     salvarDadosNoArquivo(no->esquerdo, arquivoLista);
     fprintf(arquivoLista, "%s\n%lld\n", no->nome, no->matricula);
     salvarDadosNoArquivo(no->direito, arquivoLista);
 }
 
-//=================================================
+/**
+ * @brief Inicializa a árvore binária.
+ */
 void inicializarArvore(ArvoreBinaria *arvore) {
     arvore->raiz = NULL;
     arvore->tamanho = 0;
 }
 
-//=================================================
+/**
+ * @brief Libera a memória dos nós da árvore.
+ */
 void liberarArvore(NoArvore *no) {
     if (no != NULL) {
         liberarArvore(no->esquerdo);
@@ -43,7 +52,9 @@ void liberarArvore(NoArvore *no) {
     }
 }
 
-//=================================================
+/**
+ * @brief Imprime a árvore em ordem.
+ */
 void imprimirEmOrdem(NoArvore *no) {
     if (no == NULL) return;
 
@@ -51,7 +62,10 @@ void imprimirEmOrdem(NoArvore *no) {
     printf("Matrícula: %lld, Nome: %s\n", no->matricula, no->nome);
     imprimirEmOrdem(no->direito);
 }
-//=================================================
+
+/**
+ * @brief Solicita uma opção do usuário no menu.
+ */
 long long int pedirOpcao() {
     int op;
     printf("\n--- Menu Principal ---\n");
@@ -67,7 +81,10 @@ long long int pedirOpcao() {
     } while ((op < 1) || (op > 6));
     return op;
 }
-//=================================================
+
+/**
+ * @brief Solicita um número para inserção ou exclusão.
+ */
 long long int pedirNum(int caminhoASerEscolhido) {
     long long int num;
     if (caminhoASerEscolhido == 0) {
@@ -79,9 +96,10 @@ long long int pedirNum(int caminhoASerEscolhido) {
     }
     return num;
 }
-//=================================================
 
-//=================================================
+/**
+ * @brief Menu principal para interação com o usuário.
+ */
 void menuPrincipal(ArvoreBinaria *arvore) {
     long long int op, matricula;
     char nome[100];
@@ -126,16 +144,22 @@ void menuPrincipal(ArvoreBinaria *arvore) {
         }
     } while (repete == 0);
 }
-//=================================================
+
+/**
+ * @brief Conta o número de matrículas no arquivo.
+ */
 int contarMatriculas(FILE *arquivoLista) {
     char linha[100];
     int totalMatriculas = 0;
     while (fgets(linha, sizeof(linha), arquivoLista) != NULL) {
         totalMatriculas++;
     }
-    return totalMatriculas / 2;  // Cada matrícula ocupa duas linhas (nome e matrícula)
+    return totalMatriculas / 2;
 }
-//=================================================
+
+/**
+ * @brief Insere um novo nó na árvore binária.
+ */
 NoArvore* inserirNo(NoArvore *no, long long int matricula, char *nome) {
     if (no == NULL) {
         no = (NoArvore *)malloc(sizeof(NoArvore));
@@ -156,7 +180,9 @@ NoArvore* inserirNo(NoArvore *no, long long int matricula, char *nome) {
     return no;
 }
 
-//=================================================
+/**
+ * @brief Busca um nó pela matrícula.
+ */
 NoArvore* buscarNo(NoArvore *no, long long int matricula) {
     if (no == NULL) {
         printf("Aluno não encontrado.\n");
@@ -172,13 +198,17 @@ NoArvore* buscarNo(NoArvore *no, long long int matricula) {
     }
 }
 
-//=================================================
+/**
+ * @brief Encontra o menor valor na árvore.
+ */
 NoArvore* encontrarMinimo(NoArvore *no) {
     while (no->esquerdo != NULL) no = no->esquerdo;
     return no;
 }
 
-//=================================================
+/**
+ * @brief Remove um nó da árvore binária.
+ */
 NoArvore* removerNo(NoArvore *no, long long int matricula) {
     if (no == NULL) {
         printf("Matrícula não encontrada.\n");
@@ -207,7 +237,10 @@ NoArvore* removerNo(NoArvore *no, long long int matricula) {
     }
     return no;
 }
-//=================================================
+
+/**
+ * @brief Lê as matrículas do arquivo e insere na árvore binária.
+ */
 void lerEInserirMatriculas(ArvoreBinaria *arvore, FILE *arquivoLista) {
     rewind(arquivoLista);  // Reposicionar para o início do arquivo
     long long int matricula;
@@ -221,7 +254,10 @@ void lerEInserirMatriculas(ArvoreBinaria *arvore, FILE *arquivoLista) {
         }
     }
 }
-//=================================================
+
+/**
+ * @brief Inicializa o sistema, lendo dados e interagindo com o usuário.
+ */
 void iniciarCodigo(FILE *arquivoLista, ArvoreBinaria *arvore) {
     arquivoLista = abrirArquivo("nomes_matriculas.txt", "r");
     int totalMatriculas = contarMatriculas(arquivoLista);
@@ -246,10 +282,14 @@ void iniciarCodigo(FILE *arquivoLista, ArvoreBinaria *arvore) {
     // Liberar a memória
     liberarArvore(arvore->raiz);
 }
-//=================================================
+
+/**
+ * @brief Função principal.
+ * @return 0 para indicar que o programa foi executado corretamente.
+ */
 int main() {
     FILE *arquivoLista;
     ArvoreBinaria arvore;
-    iniciarCodigo(arquivoLista,&arvore);
+    iniciarCodigo(arquivoLista, &arvore);
     return 0;
 }
