@@ -11,61 +11,46 @@ FILE *abrirArquivo(char *nomeArq, char *modo) {
     printf("INFO: Arquivo Aberto! Bom uso.\n");
     return arq;
 }
+
 //=================================================
 void calcularTempo(double ini, double fim) {
     double tempoDecorrido = (double)(fim - ini) / CLOCKS_PER_SEC;
     printf("Tempo de execucao: %f segundos\n", tempoDecorrido);
 }
-//=================================================
-// void salvarDadosNoArquivo(ArvoreBinaria *arvore, FILE *arquivoLista) {
-//     for (int i = 0; i < arvore->capacidade; i++) {
-//         if (arvore->elementos[i].ocupado) {
-//             fprintf(arquivoLista, "%s\n%lld\n", arvore->elementos[i].nome, arvore->elementos[i].matricula);
-//         }
-//     }
-//     printf("INFO: Dados salvos com sucesso no arquivo.\n");
-// }
-//=================================================
-// void inicializarArvore(ArvoreBinaria *arvore, int quantidadeMatriculas) {
-//     arvore->capacidade = (int)(quantidadeMatriculas * FATOR_SEGURANCA);
-//     arvore->tamanho = 0;
-//     arvore->elementos = (NoArvore *)malloc(arvore->capacidade * sizeof(NoArvore));
-
-//     if (arvore->elementos == NULL) {
-//         printf("Erro de alocação de memória.\n");
-//         exit(1);
-//     }
-
-//     for (int i = 0; i < arvore->capacidade; i++) {
-//         arvore->elementos[i].ocupado = 0; // Inicializa todos os nós como vazios
-//     }
-// }
-//=================================================
 
 //=================================================
-// void liberarArvore(ArvoreBinaria *arvore) {
-//     if (arvore->elementos != NULL) {
-//         free(arvore->elementos);
-//         arvore->elementos = NULL;
-//     }
-//     arvore->tamanho = 0;
-//     arvore->capacidade = 0;
-// }
+void salvarDadosNoArquivo(NoArvore *no, FILE *arquivoLista) {
+    if (no == NULL) return;
+
+    // Salvar os dados em ordem
+    salvarDadosNoArquivo(no->esquerdo, arquivoLista);
+    fprintf(arquivoLista, "%s\n%lld\n", no->nome, no->matricula);
+    salvarDadosNoArquivo(no->direito, arquivoLista);
+}
+
 //=================================================
-// void imprimirEmOrdem(ArvoreBinaria *arvore, int indice) {
-//     if (indice >= arvore->capacidade || !arvore->elementos[indice].ocupado) {
-//         return;
-//     }
+void inicializarArvore(ArvoreBinaria *arvore) {
+    arvore->raiz = NULL;
+    arvore->tamanho = 0;
+}
 
-//     // Percorrer o filho esquerdo
-//     imprimirEmOrdem(arvore, 2 * indice + 1);
+//=================================================
+void liberarArvore(NoArvore *no) {
+    if (no != NULL) {
+        liberarArvore(no->esquerdo);
+        liberarArvore(no->direito);
+        free(no);
+    }
+}
 
-//     // Imprimir o nó atual
-//     printf("Matrícula: %lld, Nome: %s\n", arvore->elementos[indice].matricula, arvore->elementos[indice].nome);
+//=================================================
+void imprimirEmOrdem(NoArvore *no) {
+    if (no == NULL) return;
 
-//     // Percorrer o filho direito
-//     imprimirEmOrdem(arvore, 2 * indice + 2);
-// }
+    imprimirEmOrdem(no->esquerdo);
+    printf("Matrícula: %lld, Nome: %s\n", no->matricula, no->nome);
+    imprimirEmOrdem(no->direito);
+}
 //=================================================
 long long int pedirOpcao() {
     int op;
@@ -99,47 +84,39 @@ long long int pedirNum(int caminhoASerEscolhido) {
 
 //=================================================
 void menuPrincipal(ArvoreBinaria *arvore) {
-    long long int op;
-    long long int numInseri;
-    char nomeInseri[100];
+    long long int op, matricula;
+    char nome[100];
     int repete = 0;
     do {
         op = pedirOpcao();
         switch (op) {
             case 1:
-                // Inserir na Árvore Binária
-                numInseri = pedirNum(0);
-                printf("Digite o nome associado à matrícula: ");
-                getchar();  // Para evitar problemas com a leitura do '\n' residual
-                fgets(nomeInseri, sizeof(nomeInseri), stdin);
-                nomeInseri[strcspn(nomeInseri, "\n")] = 0;  // Remover a quebra de linha
-                inserirAluno(arvore, numInseri, nomeInseri);
+                printf("Digite o numero da matrícula: ");
+                scanf("%lld", &matricula);
+                printf("Digite o nome: ");
+                getchar();  // Limpar buffer
+                fgets(nome, sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = 0;  // Remover o '\n'
+                arvore->raiz = inserirNo(arvore->raiz, matricula, nome);
                 break;
             case 2:
-                // Exibir a Árvore Binária em Ordem
                 printf("\n\n===| Exibição da Árvore Binária (Em Ordem) |===\n\n");
-                imprimirEmOrdem(arvore, 0);
+                imprimirEmOrdem(arvore->raiz);
                 break;
             case 3:
-                // Excluir da Árvore Binária
-                numInseri = pedirNum(1);
-                removerAluno(arvore, numInseri);
+                printf("Digite o numero da matrícula para remover: ");
+                scanf("%lld", &matricula);
+                arvore->raiz = removerNo(arvore->raiz, matricula);
                 break;
             case 4:
-                // Pesquisar uma matrícula na Árvore Binária
-                numInseri = pedirNum(0);
-                buscarAluno(arvore, numInseri);
+                printf("Digite o numero da matrícula para buscar: ");
+                scanf("%lld", &matricula);
+                buscarNo(arvore->raiz, matricula);
                 break;
             case 5:
-                // Exibir total de matrículas na Árvore Binária
                 printf("O total de matrículas na árvore é: %d\n", arvore->tamanho);
                 break;
             case 6:
-                // Imprimir Vetor completo
-                imprimirVetorCompleto(arvore);
-                break;
-            case 7:
-                // Sair
                 repete = 1;
                 break;
             default:
@@ -158,66 +135,77 @@ int contarMatriculas(FILE *arquivoLista) {
     return totalMatriculas / 2;  // Cada matrícula ocupa duas linhas (nome e matrícula)
 }
 //=================================================
-// void inserirAluno(ArvoreBinaria *arvore, long long int matricula, char *nome) {
-//     if (arvore->tamanho >= arvore->capacidade) {
-//         redimensionarArvore(arvore);
-//     }
+NoArvore* inserirNo(NoArvore *no, long long int matricula, char *nome) {
+    if (no == NULL) {
+        no = (NoArvore *)malloc(sizeof(NoArvore));
+        if (no == NULL) {
+            printf("Erro de alocação de memória.\n");
+            exit(1);
+        }
+        no->matricula = matricula;
+        strcpy(no->nome, nome);
+        no->esquerdo = no->direito = NULL;
+    } else if (matricula < no->matricula) {
+        no->esquerdo = inserirNo(no->esquerdo, matricula, nome);
+    } else if (matricula > no->matricula) {
+        no->direito = inserirNo(no->direito, matricula, nome);
+    } else {
+        printf("Matrícula já existente.\n");
+    }
+    return no;
+}
 
-//     int i = 0;
-//     while (i < arvore->capacidade && arvore->elementos[i].ocupado) {
-//         if (matricula < arvore->elementos[i].matricula) {
-//             i = 2 * i + 1; // Vai para o filho esquerdo
-//         } else if (matricula > arvore->elementos[i].matricula) {
-//             i = 2 * i + 2; // Vai para o filho direito
-//         } else {
-//             printf("Matrícula já existente.\n");
-//             return;
-//         }
-//     }
+//=================================================
+NoArvore* buscarNo(NoArvore *no, long long int matricula) {
+    if (no == NULL) {
+        printf("Aluno não encontrado.\n");
+        return NULL;
+    }
+    if (matricula < no->matricula) {
+        return buscarNo(no->esquerdo, matricula);
+    } else if (matricula > no->matricula) {
+        return buscarNo(no->direito, matricula);
+    } else {
+        printf("Aluno encontrado: %s (Matrícula: %lld)\n", no->nome, no->matricula);
+        return no;
+    }
+}
 
-//     if (i < arvore->capacidade) {
-//         arvore->elementos[i].matricula = matricula;
-//         strcpy(arvore->elementos[i].nome, nome);
-//         arvore->elementos[i].ocupado = 1;
-//         arvore->tamanho++;
-//         printf("Aluno inserido com sucesso!\n");
-//     } else {
-//         printf("Erro ao inserir o aluno. Posição inválida.\n");
-//     }
-// }
 //=================================================
-// void buscarAluno(ArvoreBinaria *arvore, long long int matricula) {
-//     int i = 0;
-//     while (i < arvore->capacidade && arvore->elementos[i].ocupado) {
-//         if (matricula < arvore->elementos[i].matricula) {
-//             i = 2 * i + 1; // Filho esquerdo
-//         } else if (matricula > arvore->elementos[i].matricula) {
-//             i = 2 * i + 2; // Filho direito
-//         } else {
-//             printf("Aluno encontrado: %s (Matrícula: %lld)\n", arvore->elementos[i].nome, arvore->elementos[i].matricula);
-//             return;
-//         }
-//     }
-//     printf("Aluno não encontrado.\n");
-// }
+NoArvore* encontrarMinimo(NoArvore *no) {
+    while (no->esquerdo != NULL) no = no->esquerdo;
+    return no;
+}
+
 //=================================================
-// void removerAluno(ArvoreBinaria *arvore, long long int matricula) {
-//     int i = 0;
-//     while (i < arvore->capacidade && arvore->elementos[i].ocupado) {
-//         if (matricula < arvore->elementos[i].matricula) {
-//             i = 2 * i + 1; // Filho esquerdo
-//         } else if (matricula > arvore->elementos[i].matricula) {
-//             i = 2 * i + 2; // Filho direito
-//         } else {
-//             // Encontrei o nó para remover
-//             printf("Removendo aluno: %s (Matrícula: %lld)\n", arvore->elementos[i].nome, arvore->elementos[i].matricula);
-//             arvore->elementos[i].ocupado = 0;
-//             arvore->tamanho--;
-//             return;
-//         }
-//     }
-//     printf("Matrícula não encontrada para remoção.\n");
-// }
+NoArvore* removerNo(NoArvore *no, long long int matricula) {
+    if (no == NULL) {
+        printf("Matrícula não encontrada.\n");
+        return NULL;
+    }
+
+    if (matricula < no->matricula) {
+        no->esquerdo = removerNo(no->esquerdo, matricula);
+    } else if (matricula > no->matricula) {
+        no->direito = removerNo(no->direito, matricula);
+    } else {
+        if (no->esquerdo == NULL) {
+            NoArvore *temp = no->direito;
+            free(no);
+            return temp;
+        } else if (no->direito == NULL) {
+            NoArvore *temp = no->esquerdo;
+            free(no);
+            return temp;
+        }
+
+        NoArvore *temp = encontrarMinimo(no->direito);
+        no->matricula = temp->matricula;
+        strcpy(no->nome, temp->nome);
+        no->direito = removerNo(no->direito, temp->matricula);
+    }
+    return no;
+}
 //=================================================
 void lerEInserirMatriculas(ArvoreBinaria *arvore, FILE *arquivoLista) {
     rewind(arquivoLista);  // Reposicionar para o início do arquivo
@@ -227,40 +215,39 @@ void lerEInserirMatriculas(ArvoreBinaria *arvore, FILE *arquivoLista) {
     while (fgets(nome, sizeof(nome), arquivoLista) != NULL) {  // Ler o nome
         nome[strcspn(nome, "\n")] = 0;  // Remover o '\n' do nome
         if (fscanf(arquivoLista, "%lld\n", &matricula) != EOF) {  // Ler a matrícula
-            inserirAluno(arvore, matricula, nome);  // Inserir na árvore binária
+            arvore->raiz = inserirNo(arvore->raiz, matricula, nome);  // Inserir na árvore binária
         }
     }
 }
 //=================================================
-void iniciarCodigo(FILE *arquivoLista,ArvoreBinaria arvore){
+void iniciarCodigo(FILE *arquivoLista, ArvoreBinaria *arvore) {
     arquivoLista = abrirArquivo("nomes_matriculas.txt", "r");
     int totalMatriculas = contarMatriculas(arquivoLista);
     printf("Total de matrículas no arquivo: %d\n", totalMatriculas);
     rewind(arquivoLista); // Volta ao início do arquivo
 
-    inicializarArvore(&arvore, totalMatriculas);
+    inicializarArvore(arvore);
     double inicio = clock();
     // Ler as matrículas e inseri-las na árvore
-    lerEInserirMatriculas(&arvore, arquivoLista);
+    lerEInserirMatriculas(arvore, arquivoLista);
     double fim = clock();
     fclose(arquivoLista);
-    calcularTempo(inicio,fim);
+    calcularTempo(inicio, fim);
     // Menu para interação
-    menuPrincipal(&arvore);
+    menuPrincipal(arvore);
 
     // Salvar os dados antes de encerrar
     arquivoLista = abrirArquivo("nomes_matriculas.txt", "w");
-    salvarDadosNoArquivo(&arvore, arquivoLista);
+    salvarDadosNoArquivo(arvore->raiz, arquivoLista);
     fclose(arquivoLista);
 
     // Liberar a memória
-    liberarArvore(&arvore);
-
+    liberarArvore(arvore->raiz);
 }
 //=================================================
 int main() {
     FILE *arquivoLista;
     ArvoreBinaria arvore;
-    iniciarCodigo(arquivoLista,arvore);
+    iniciarCodigo(arquivoLista,&arvore);
     return 0;
 }
