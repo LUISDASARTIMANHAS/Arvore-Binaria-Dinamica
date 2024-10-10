@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.3)  10 OCT 2024 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.3)  10 OCT 2024 18:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -841,6 +841,32 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 \tf@toc=\write6
 \openout6 = `refman.toc'.
 
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 169.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 169
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 169
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 16
+9.
+
+(/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 169.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 169.
+ [1] [2
+
+]
 Package hyperref Info: Option `pageanchor' set `true' on input line 171.
 
 Chapter 1.
@@ -859,49 +885,13 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (./annotated.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.29996pt on input line 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 2.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/wasysym/uwasy.fd
-File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
-)
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 3.
-
-
-LaTeX Warning: Reference `structArvoreBinaria' on page 1 undefined on input lin
-e 3.
-
-
-LaTeX Warning: Reference `structNoArvore' on page 1 undefined on input line 4.
-
-)
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 176.
- [1
-
+) [1
 
 ] [2
 
 ]
 Chapter 2.
-(./files.tex
-
-LaTeX Warning: Reference `ArvoreBinariaDinamica_8h' on page 3 undefined on inpu
-t line 3.
-
-) [3] [4
+(./files.tex) [3] [4
 
 ]
 Chapter 3.
@@ -911,32 +901,156 @@ LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 16.
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-9.
+) <./structArvoreBinaria__coll__graph.pdf
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+pdfTeX warning: pdflatex (file ./structArvoreBinaria__coll__graph.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+>
+<structArvoreBinaria__coll__graph.pdf, id=142, 217.81375pt x 169.63374pt>
+File: structArvoreBinaria__coll__graph.pdf Graphic file (type pdf)
+<use structArvoreBinaria__coll__graph.pdf>
+Package pdftex.def Info: structArvoreBinaria__coll__graph.pdf  used on input li
+ne 19.
+(pdftex.def)             Requested size: 217.0pt x 168.99915pt.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 22.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
+5.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 19.
+(Font)              scaled to size 8.99994pt on input line 25.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 33.
-)
-(./structNoArvore.tex [5]) [6] [7] [8
+(Font)              scaled to size 7.19995pt on input line 39.
+ [5])
+(./structNoArvore.tex <./structNoArvore__coll__graph.pdf>
+<structNoArvore__coll__graph.pdf, id=167, 206.7725pt x 102.3825pt>
+File: structNoArvore__coll__graph.pdf Graphic file (type pdf)
+<use structNoArvore__coll__graph.pdf>
+Package pdftex.def Info: structNoArvore__coll__graph.pdf  used on input line 19
+.
+(pdftex.def)             Requested size: 206.0pt x 102.00262pt.
+ [6]) [7] [8
 
 ]
 Chapter 4.
-(./ArvoreBinariaDinamica_8h.tex) [9] [10
+(./ArvoreBinariaDinamica_8h.tex <./ArvoreBinariaDinamica_8h__incl.pdf
+
+pdfTeX warning: pdflatex (file ./ArvoreBinariaDinamica_8h__incl.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
+>
+<ArvoreBinariaDinamica_8h__incl.pdf, id=203, 410.53375pt x 156.585pt>
+File: ArvoreBinariaDinamica_8h__incl.pdf Graphic file (type pdf)
+<use ArvoreBinariaDinamica_8h__incl.pdf>
+Package pdftex.def Info: ArvoreBinariaDinamica_8h__incl.pdf  used on input line
+ 18.
+(pdftex.def)             Requested size: 350.0pt x 133.49449pt.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 25.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 25.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 25.
+ [9]
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 94.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 94.
+ [10]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.1 on input line 106.
+
+
+Underfull \hbox (badness 10000) detected at line 107
+[][][]
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.2 on input line 126.
+
+
+Underfull \hbox (badness 10000) detected at line 127
+[][][]
+ []
+
+[11]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.3 on input line 146.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.4 on input line 161.
+
+
+Underfull \hbox (badness 10000) detected at line 162
+[][][]
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.5 on input line 179.
+
+
+Underfull \hbox (badness 10000) detected at line 180
+[][][]
+ []
+
+[12]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.6 on input line 197.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.7 on input line 212.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.8 on input line 231.
+
+
+Underfull \hbox (badness 10000) detected at line 232
+[][][]
+ []
+
+[13]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.9 on input line 251.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.10 on input line 266.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.11 on input line 281.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.12 on input line 298.
+
+[14]
+Underfull \hbox (badness 10000) detected at line 299
+[][][]
+ []
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4.13 on input line 318.
+
+) [15] [16
 
 ]
 No file refman.ind.
+
+Package longtable Warning: Table widths have changed. Rerun LaTeX.
+
 (./refman.aux)
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -946,30 +1060,30 @@ Package rerunfilecheck Warning: File `refman.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `refman.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  86A3D7C1D7775C76A1B131475564B842;3228.
+(rerunfilecheck)             Before: 86A3D7C1D7775C76A1B131475564B842;3228
+(rerunfilecheck)             After:  45746F3CA286C049E3C1AD8FEBC2E3B0;6784.
  ) 
 Here is how much of TeX's memory you used:
- 17213 strings out of 480247
- 275473 string characters out of 5896106
- 573301 words of memory out of 5000000
- 34803 multiletter control sequences out of 15000+600000
- 509624 words of font info for 71 fonts, out of 8000000 for 9000
+ 17406 strings out of 480247
+ 279937 string characters out of 5896106
+ 581880 words of memory out of 5000000
+ 34923 multiletter control sequences out of 15000+600000
+ 526572 words of font info for 96 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,15n,117p,356b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{ArvoreBinariaDinamica_8h_a4783b702c90b53920aa8ce4
-f0fd72dcc} has been referenced but does not exist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
-hvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (12 pages, 69617 bytes).
+ 99i,15n,117p,440b,634s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cou
+rier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (20 pages, 134846 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 
