@@ -61,11 +61,10 @@ long long int pedirOpcao() {
         printf("3 - Excluir da Arvore\n");
         printf("4 - Pesquisar na Arvore\n");
         printf("5 - Total de Matriculas\n");
-        printf("6 - Percorrer toda a Arvore\n");
-        printf("7 - Sair\n");
+        printf("6 - Sair\n");
         printf("Digite a opção: ");
         scanf("%d", &op);
-    } while ((op < 1) || (op > 7));
+    } while ((op < 1) || (op > 6));
     return op;
 }
 //=================================================
@@ -98,6 +97,7 @@ void menuPrincipal(ArvoreBinaria *arvore) {
                 fgets(nome, sizeof(nome), stdin);
                 nome[strcspn(nome, "\n")] = 0;  // Remover o '\n'
                 arvore->raiz = inserirNo(arvore->raiz, matricula, nome);
+                arvore->tamanho++;
                 break;
             case 2:
                 printf("\n\n===| Exibição da Árvore Binária (Em Ordem) |===\n\n");
@@ -107,6 +107,7 @@ void menuPrincipal(ArvoreBinaria *arvore) {
                 printf("Digite o numero da matrícula para remover: ");
                 scanf("%lld", &matricula);
                 arvore->raiz = removerNo(arvore->raiz, matricula);
+                arvore->tamanho--;
                 break;
             case 4:
                 printf("Digite o numero da matrícula para buscar: ");
@@ -216,6 +217,7 @@ void lerEInserirMatriculas(ArvoreBinaria *arvore, FILE *arquivoLista) {
         nome[strcspn(nome, "\n")] = 0;  // Remover o '\n' do nome
         if (fscanf(arquivoLista, "%lld\n", &matricula) != EOF) {  // Ler a matrícula
             arvore->raiz = inserirNo(arvore->raiz, matricula, nome);  // Inserir na árvore binária
+            arvore->tamanho++;
         }
     }
 }
