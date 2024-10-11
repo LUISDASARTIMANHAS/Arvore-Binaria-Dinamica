@@ -1,0 +1,319 @@
+\hypertarget{ArvoreBinariaDinamica_8h}{}\doxysection{Arvore\+Binaria\+Dinamica.\+h File Reference}
+\label{ArvoreBinariaDinamica_8h}\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+
+
+Definições e estruturas para a manipulação de uma árvore binária.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+Include dependency graph for Arvore\+Binaria\+Dinamica.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ArvoreBinariaDinamica_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNoArvore}{No\+Arvore}}
+\begin{DoxyCompactList}\small\item\em Representa um nó da árvore binária. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}}
+\begin{DoxyCompactList}\small\item\em Representa uma árvore binária com raiz e tamanho. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef char \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a4783b702c90b53920aa8ce4f0fd72dcc}{string}}\mbox{[}101\mbox{]}
+\item 
+typedef clock\+\_\+t \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a5f0d87c497d4d5ab6afc1d936e5d68bf}{process\+Time}}
+\item 
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a990cdec038fef498463937ca332d6314}\label{ArvoreBinariaDinamica_8h_a990cdec038fef498463937ca332d6314}} 
+typedef struct \mbox{\hyperlink{structNoArvore}{No\+Arvore}} {\bfseries No\+Arvore}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FILE $\ast$ \mbox{\hyperlink{ArvoreBinariaDinamica_8h_af03a0a6245bf64a6522e8afedf59b492}{abrir\+Arquivo}} (char $\ast$nome\+Arq, char $\ast$modo)
+\begin{DoxyCompactList}\small\item\em Abre um arquivo no modo especificado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_abe61f02453485beec353880756a81bbc}{calcular\+Tempo}} (double ini, double fim)
+\begin{DoxyCompactList}\small\item\em Calcula e exibe o tempo de execução. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a163f62e48520f21010e3d7b4686564c7}{salvar\+Dados\+No\+Arquivo}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no, FILE $\ast$arquivo\+Lista)
+\begin{DoxyCompactList}\small\item\em Salva os dados de um nó em um arquivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a93d4018e7bdedff521783815562d43de}{inicializar\+Arvore}} (\mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}} $\ast$arvore)
+\begin{DoxyCompactList}\small\item\em Inicializa uma árvore binária. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a1410c535bef8eb449dbf175e67a56200}{liberar\+Arvore}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no)
+\begin{DoxyCompactList}\small\item\em Libera a memória alocada para a árvore. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a32595b9fea28ba3206879c2ac0692eb6}{imprimir\+Em\+Ordem}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no)
+\begin{DoxyCompactList}\small\item\em Imprime a árvore binária em ordem. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$ \mbox{\hyperlink{ArvoreBinariaDinamica_8h_acb47a72e875f5f4adf2cc205e8bcdd16}{inserir\+No}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no, long long int matricula, char $\ast$nome)
+\begin{DoxyCompactList}\small\item\em Insere um novo nó na árvore binária. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$ \mbox{\hyperlink{ArvoreBinariaDinamica_8h_afb65cd9f578fa35c42b4a576bd2e75d7}{buscar\+No}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no, long long int matricula)
+\begin{DoxyCompactList}\small\item\em Busca um nó pela matrícula. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$ \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a44a96b39b78c64b04e03bc1f08ce9648}{remover\+No}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no, long long int matricula)
+\begin{DoxyCompactList}\small\item\em Remove um nó da árvore binária. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$ \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a6e85326cc97da75fc2c7f84a3a5a6a7d}{encontrar\+Minimo}} (\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$no)
+\begin{DoxyCompactList}\small\item\em Encontra o menor valor em uma subárvore. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a274c59b814bb8644c7405758153d1248}{ler\+EInserir\+Matriculas}} (\mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}} $\ast$arvore, FILE $\ast$arquivo\+Lista)
+\begin{DoxyCompactList}\small\item\em Lê as matrículas de um arquivo e insere na árvore. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a5ed4f2c147d67747f15ff86efbda3017}{menu\+Principal}} (\mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}} $\ast$arvore)
+\begin{DoxyCompactList}\small\item\em Função principal do menu de operações. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ArvoreBinariaDinamica_8h_af3f616774c6e19677bf8c81db2778dff}{contar\+Matriculas}} (FILE $\ast$arquivo\+Lista)
+\begin{DoxyCompactList}\small\item\em Conta o número de matrículas em um arquivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definições e estruturas para a manipulação de uma árvore binária. 
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a5f0d87c497d4d5ab6afc1d936e5d68bf}\label{ArvoreBinariaDinamica_8h_a5f0d87c497d4d5ab6afc1d936e5d68bf}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!processTime@{processTime}}
+\index{processTime@{processTime}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{processTime}{processTime}}
+{\footnotesize\ttfamily typedef clock\+\_\+t \mbox{\hyperlink{ArvoreBinariaDinamica_8h_a5f0d87c497d4d5ab6afc1d936e5d68bf}{process\+Time}}}
+
+Define um tipo para medir o tempo de processamento \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a4783b702c90b53920aa8ce4f0fd72dcc}\label{ArvoreBinariaDinamica_8h_a4783b702c90b53920aa8ce4f0fd72dcc}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!string@{string}}
+\index{string@{string}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{string}{string}}
+{\footnotesize\ttfamily typedef char string\mbox{[}101\mbox{]}}
+
+Define um tipo string com tamanho 101 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_af03a0a6245bf64a6522e8afedf59b492}\label{ArvoreBinariaDinamica_8h_af03a0a6245bf64a6522e8afedf59b492}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!abrirArquivo@{abrirArquivo}}
+\index{abrirArquivo@{abrirArquivo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{abrirArquivo()}{abrirArquivo()}}
+{\footnotesize\ttfamily FILE$\ast$ abrir\+Arquivo (\begin{DoxyParamCaption}\item[{char $\ast$}]{nome\+Arq,  }\item[{char $\ast$}]{modo }\end{DoxyParamCaption})}
+
+
+
+Abre um arquivo no modo especificado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+Arq} & Nome do arquivo a ser aberto. \\
+\hline
+{\em modo} & Modo de abertura (ex\+: \char`\"{}r\char`\"{} para leitura). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o arquivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_afb65cd9f578fa35c42b4a576bd2e75d7}\label{ArvoreBinariaDinamica_8h_afb65cd9f578fa35c42b4a576bd2e75d7}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!buscarNo@{buscarNo}}
+\index{buscarNo@{buscarNo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{buscarNo()}{buscarNo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNoArvore}{No\+Arvore}}$\ast$ buscar\+No (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no,  }\item[{long long int}]{matricula }\end{DoxyParamCaption})}
+
+
+
+Busca um nó pela matrícula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó da árvore. \\
+\hline
+{\em matricula} & Matrícula a ser buscada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o nó encontrado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_abe61f02453485beec353880756a81bbc}\label{ArvoreBinariaDinamica_8h_abe61f02453485beec353880756a81bbc}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!calcularTempo@{calcularTempo}}
+\index{calcularTempo@{calcularTempo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{calcularTempo()}{calcularTempo()}}
+{\footnotesize\ttfamily void calcular\+Tempo (\begin{DoxyParamCaption}\item[{double}]{ini,  }\item[{double}]{fim }\end{DoxyParamCaption})}
+
+
+
+Calcula e exibe o tempo de execução. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini} & Tempo inicial. \\
+\hline
+{\em fim} & Tempo final. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_af3f616774c6e19677bf8c81db2778dff}\label{ArvoreBinariaDinamica_8h_af3f616774c6e19677bf8c81db2778dff}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!contarMatriculas@{contarMatriculas}}
+\index{contarMatriculas@{contarMatriculas}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{contarMatriculas()}{contarMatriculas()}}
+{\footnotesize\ttfamily int contar\+Matriculas (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{arquivo\+Lista }\end{DoxyParamCaption})}
+
+
+
+Conta o número de matrículas em um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arquivo\+Lista} & Ponteiro para o arquivo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Número total de matrículas.
+\end{DoxyReturn}
+Conta o número de matrículas em um arquivo. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a6e85326cc97da75fc2c7f84a3a5a6a7d}\label{ArvoreBinariaDinamica_8h_a6e85326cc97da75fc2c7f84a3a5a6a7d}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!encontrarMinimo@{encontrarMinimo}}
+\index{encontrarMinimo@{encontrarMinimo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{encontrarMinimo()}{encontrarMinimo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNoArvore}{No\+Arvore}}$\ast$ encontrar\+Minimo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no }\end{DoxyParamCaption})}
+
+
+
+Encontra o menor valor em uma subárvore. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó da árvore. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o nó com o menor valor.
+\end{DoxyReturn}
+Encontra o menor valor em uma subárvore. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a32595b9fea28ba3206879c2ac0692eb6}\label{ArvoreBinariaDinamica_8h_a32595b9fea28ba3206879c2ac0692eb6}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!imprimirEmOrdem@{imprimirEmOrdem}}
+\index{imprimirEmOrdem@{imprimirEmOrdem}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{imprimirEmOrdem()}{imprimirEmOrdem()}}
+{\footnotesize\ttfamily void imprimir\+Em\+Ordem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no }\end{DoxyParamCaption})}
+
+
+
+Imprime a árvore binária em ordem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó da árvore a ser impresso.\\
+\hline
+\end{DoxyParams}
+Imprime a árvore binária em ordem. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a93d4018e7bdedff521783815562d43de}\label{ArvoreBinariaDinamica_8h_a93d4018e7bdedff521783815562d43de}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!inicializarArvore@{inicializarArvore}}
+\index{inicializarArvore@{inicializarArvore}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{inicializarArvore()}{inicializarArvore()}}
+{\footnotesize\ttfamily void inicializar\+Arvore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}} $\ast$}]{arvore }\end{DoxyParamCaption})}
+
+
+
+Inicializa uma árvore binária. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arvore} & Ponteiro para a árvore binária a ser inicializada.\\
+\hline
+\end{DoxyParams}
+Inicializa uma árvore binária. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_acb47a72e875f5f4adf2cc205e8bcdd16}\label{ArvoreBinariaDinamica_8h_acb47a72e875f5f4adf2cc205e8bcdd16}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!inserirNo@{inserirNo}}
+\index{inserirNo@{inserirNo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{inserirNo()}{inserirNo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNoArvore}{No\+Arvore}}$\ast$ inserir\+No (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no,  }\item[{long long int}]{matricula,  }\item[{char $\ast$}]{nome }\end{DoxyParamCaption})}
+
+
+
+Insere um novo nó na árvore binária. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó da árvore. \\
+\hline
+{\em matricula} & Matrícula a ser inserida. \\
+\hline
+{\em nome} & Nome do aluno. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o nó inserido. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a274c59b814bb8644c7405758153d1248}\label{ArvoreBinariaDinamica_8h_a274c59b814bb8644c7405758153d1248}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!lerEInserirMatriculas@{lerEInserirMatriculas}}
+\index{lerEInserirMatriculas@{lerEInserirMatriculas}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{lerEInserirMatriculas()}{lerEInserirMatriculas()}}
+{\footnotesize\ttfamily void ler\+EInserir\+Matriculas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}} $\ast$}]{arvore,  }\item[{FILE $\ast$}]{arquivo\+Lista }\end{DoxyParamCaption})}
+
+
+
+Lê as matrículas de um arquivo e insere na árvore. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arvore} & Ponteiro para a árvore binária. \\
+\hline
+{\em arquivo\+Lista} & Ponteiro para o arquivo contendo as matrículas.\\
+\hline
+\end{DoxyParams}
+Lê as matrículas de um arquivo e insere na árvore. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a1410c535bef8eb449dbf175e67a56200}\label{ArvoreBinariaDinamica_8h_a1410c535bef8eb449dbf175e67a56200}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!liberarArvore@{liberarArvore}}
+\index{liberarArvore@{liberarArvore}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{liberarArvore()}{liberarArvore()}}
+{\footnotesize\ttfamily void liberar\+Arvore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no }\end{DoxyParamCaption})}
+
+
+
+Libera a memória alocada para a árvore. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó a ser liberado.\\
+\hline
+\end{DoxyParams}
+Libera a memória alocada para a árvore. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a5ed4f2c147d67747f15ff86efbda3017}\label{ArvoreBinariaDinamica_8h_a5ed4f2c147d67747f15ff86efbda3017}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!menuPrincipal@{menuPrincipal}}
+\index{menuPrincipal@{menuPrincipal}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{menuPrincipal()}{menuPrincipal()}}
+{\footnotesize\ttfamily void menu\+Principal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structArvoreBinaria}{Arvore\+Binaria}} $\ast$}]{arvore }\end{DoxyParamCaption})}
+
+
+
+Função principal do menu de operações. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arvore} & Ponteiro para a árvore binária.\\
+\hline
+\end{DoxyParams}
+Função principal do menu de operações. \mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a44a96b39b78c64b04e03bc1f08ce9648}\label{ArvoreBinariaDinamica_8h_a44a96b39b78c64b04e03bc1f08ce9648}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!removerNo@{removerNo}}
+\index{removerNo@{removerNo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{removerNo()}{removerNo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNoArvore}{No\+Arvore}}$\ast$ remover\+No (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no,  }\item[{long long int}]{matricula }\end{DoxyParamCaption})}
+
+
+
+Remove um nó da árvore binária. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó da árvore. \\
+\hline
+{\em matricula} & Matrícula do nó a ser removido. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ponteiro para o nó removido. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ArvoreBinariaDinamica_8h_a163f62e48520f21010e3d7b4686564c7}\label{ArvoreBinariaDinamica_8h_a163f62e48520f21010e3d7b4686564c7}} 
+\index{ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}!salvarDadosNoArquivo@{salvarDadosNoArquivo}}
+\index{salvarDadosNoArquivo@{salvarDadosNoArquivo}!ArvoreBinariaDinamica.h@{ArvoreBinariaDinamica.h}}
+\doxysubsubsection{\texorpdfstring{salvarDadosNoArquivo()}{salvarDadosNoArquivo()}}
+{\footnotesize\ttfamily void salvar\+Dados\+No\+Arquivo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNoArvore}{No\+Arvore}} $\ast$}]{no,  }\item[{FILE $\ast$}]{arquivo\+Lista }\end{DoxyParamCaption})}
+
+
+
+Salva os dados de um nó em um arquivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em no} & Ponteiro para o nó da árvore. \\
+\hline
+{\em arquivo\+Lista} & Ponteiro para o arquivo de saída.\\
+\hline
+\end{DoxyParams}
+Salva os dados de um nó em um arquivo. 

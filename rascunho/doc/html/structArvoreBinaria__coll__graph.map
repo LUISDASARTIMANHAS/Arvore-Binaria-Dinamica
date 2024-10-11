@@ -1,0 +1,4 @@
+<map id="ArvoreBinaria" name="ArvoreBinaria">
+<area shape="rect" id="node1" title="Representa uma árvore binária com raiz e tamanho." alt="" coords="5,97,116,124"/>
+<area shape="rect" id="node2" href="$structNoArvore.html" title="Representa um nó da árvore binária." alt="" coords="19,7,102,33"/>
+</map>
