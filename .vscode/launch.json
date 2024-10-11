@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/lucas/Documentos/ifes-2ano/Arvore-Binaria-Dinamica/rascunho",
-      "program": "/home/lucas/Documentos/ifes-2ano/Arvore-Binaria-Dinamica/rascunho/build/Debug/outDebug",
+      "cwd": "/home/lucas/Documentos/ifes-2ano/Arvore-Binaria-Dinamica",
+      "program": "/home/lucas/Documentos/ifes-2ano/Arvore-Binaria-Dinamica/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
