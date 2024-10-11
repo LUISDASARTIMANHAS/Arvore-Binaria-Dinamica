@@ -14,6 +14,83 @@ FILE *abrirArquivo(char *nomeArq, char *modo) {
     return arq;
 }
 
+//=================================================================
+/**
+ * @brief Imprime a árvore em ordem.
+ */
+void caminhamento_Em_Ordem(NoArvore *R){
+	if(R != NULL){
+		caminhamento_Em_Ordem(R->esquerdo);
+		printf("Matrícula: %lld, Nome: %s\n", R->matricula, R->nome);
+		caminhamento_Em_Ordem(R->direito);
+	}//if
+}
+//=================================================================
+/**
+ * @brief Imprime a árvore em Pré ordem.
+ */
+void caminhamento_Pre_Ordem(NoArvore *R){
+	if(R != NULL){
+		printf("Matrícula: %lld, Nome: %s\n", R->matricula, R->nome);
+		caminhamento_Pre_Ordem(R->esquerdo);
+		caminhamento_Pre_Ordem(R->direito);
+	}//if
+}
+//=================================================================
+/**
+ * @brief Imprime a árvore em Pós ordem.
+ */
+void caminhamento_Pos_Ordem(NoArvore *R){
+	if(R != NULL){
+		caminhamento_Pos_Ordem(R->esquerdo);
+		caminhamento_Pos_Ordem(R->direito);
+		printf("Matrícula: %lld, Nome: %s\n", R->matricula, R->nome);
+	}//if
+}
+//==================================================================
+
+/**
+ * @brief // inputs personalizados e modificados
+ */
+
+/**
+ * @brief // input para captar floats e inteiros do teclado do usuario
+ */
+float input(){
+    float value;
+    scanf("%f", &value);
+    return value;
+}
+
+/**
+ * @brief // input para captar long long int do teclado do usuario
+ */
+long long int inputDLLD(){
+    long long int value;
+    scanf("%lld", &value);
+    return value;
+}
+
+/**
+ * @brief // input para captar Verdadeiro ou falso (Bloeano) do teclado do usuario
+ */
+float inputBoleano(){
+	int value;
+	do{
+		fflush(stdin);
+		scanf("%d", &value);
+	}while(value != 1 && value != 0);
+	return value;
+}
+
+/**
+ * @brief // input para captar Strings do teclado do usuario
+ */
+void inputS(char destino[]){
+    scanf(" %100[^\n]s", destino);
+}
+
+
 /**
  * @brief Calcula e exibe o tempo de execução.
  */
@@ -53,17 +130,6 @@ void liberarArvore(NoArvore *no) {
 }
 
 /**
- * @brief Imprime a árvore em ordem.
- */
-void imprimirEmOrdem(NoArvore *no) {
-    if (no == NULL) return;
-
-    imprimirEmOrdem(no->esquerdo);
-    printf("Matrícula: %lld, Nome: %s\n", no->matricula, no->nome);
-    imprimirEmOrdem(no->direito);
-}
-
-/**
  * @brief Solicita uma opção do usuário no menu.
  */
 long long int pedirOpcao() {
@@ -71,14 +137,16 @@ long long int pedirOpcao() {
     printf("\n--- Menu Principal ---\n");
     do {
         printf("1 - Inserir na Arvore\n");
-        printf("2 - Exibir a Arvore\n");
-        printf("3 - Excluir da Arvore\n");
-        printf("4 - Pesquisar na Arvore\n");
-        printf("5 - Total de Matriculas\n");
-        printf("6 - Sair\n");
+        printf("2 - Excluir da Arvore\n");
+        printf("3 - Pesquisar na Arvore\n");
+        printf("4 - Total de Matriculas\n");
+        printf("5 - Imprimir em Pre-ordem\n");
+        printf("6 - Imprimir em Em-ordem\n");
+        printf("7 - Imprimir em Pos-ordem\n");
+        printf("0 - Sair\n");
         printf("Digite a opção: ");
-        scanf("%d", &op);
-    } while ((op < 1) || (op > 6));
+        op = input();
+    } while ((op < 0) || (op > 7));
     return op;
 }
 
@@ -89,10 +157,10 @@ long long int pedirNum(int caminhoASerEscolhido) {
     long long int num;
     if (caminhoASerEscolhido == 0) {
         printf("Digite um numero para ser inserido: ");
-        scanf("%lld", &num);
+        num = inputDLLD();
     } else {
         printf("Digite um numero para ser excluido: ");
-        scanf("%lld", &num);
+        num = inputDLLD();
     }
     return num;
 }
@@ -102,41 +170,47 @@ long long int pedirNum(int caminhoASerEscolhido) {
  */
 void menuPrincipal(ArvoreBinaria *arvore) {
     long long int op, matricula;
-    char nome[100];
+    string nome;
     int repete = 0;
     do {
         op = pedirOpcao();
         switch (op) {
+            case 0:
+                repete = 1;
+                break;
             case 1:
                 printf("Digite o numero da matrícula: ");
-                scanf("%lld", &matricula);
+                matricula = inputDLLD();
                 printf("Digite o nome: ");
-                getchar();  // Limpar buffer
-                fgets(nome, sizeof(nome), stdin);
-                nome[strcspn(nome, "\n")] = 0;  // Remover o '\n'
+                inputS(nome);
                 arvore->raiz = inserirNo(arvore->raiz, matricula, nome);
                 arvore->tamanho++;
                 break;
             case 2:
-                printf("\n\n===| Exibição da Árvore Binária (Em Ordem) |===\n\n");
-                imprimirEmOrdem(arvore->raiz);
-                break;
-            case 3:
                 printf("Digite o numero da matrícula para remover: ");
-                scanf("%lld", &matricula);
+                matricula = inputDLLD();
                 arvore->raiz = removerNo(arvore->raiz, matricula);
                 arvore->tamanho--;
                 break;
-            case 4:
+            case 3:
                 printf("Digite o numero da matrícula para buscar: ");
-                scanf("%lld", &matricula);
+                matricula = inputDLLD();
                 buscarNo(arvore->raiz, matricula);
                 break;
-            case 5:
+            case 4:
                 printf("O total de matrículas na árvore é: %d\n", arvore->tamanho);
                 break;
+            case 5:
+                printf("\n\n===| Exibição da Árvore Binária (Pre Ordem) |===\n\n");
+                caminhamento_Pre_Ordem(arvore->raiz);
+                break;
             case 6:
-                repete = 1;
+                printf("\n\n===| Exibição da Árvore Binária (Em Ordem) |===\n\n");
+                caminhamento_Em_Ordem(arvore->raiz);
+                break;
+            case 7:
+                printf("\n\n===| Exibição da Árvore Binária (Pos Ordem) |===\n\n");
+                caminhamento_Pos_Ordem(arvore->raiz);
                 break;
             default:
                 printf("Opção inválida. Tente novamente.\n");
@@ -151,7 +225,8 @@ void menuPrincipal(ArvoreBinaria *arvore) {
 int contarMatriculas(FILE *arquivoLista) {
     char linha[100];
     int totalMatriculas = 0;
-    while (fgets(linha, sizeof(linha), arquivoLista) != NULL) {
+    while (! feof(arquivoLista)) {
+        fscanf(arquivoLista, " %99[^\n]s" , linha);
         totalMatriculas++;
     }
     return totalMatriculas / 2;
@@ -244,11 +319,15 @@ NoArvore* removerNo(NoArvore *no, long long int matricula) {
 void lerEInserirMatriculas(ArvoreBinaria *arvore, FILE *arquivoLista) {
     rewind(arquivoLista);  // Reposicionar para o início do arquivo
     long long int matricula;
-    char nome[100];
+    string nome;
 
-    while (fgets(nome, sizeof(nome), arquivoLista) != NULL) {  // Ler o nome
-        nome[strcspn(nome, "\n")] = 0;  // Remover o '\n' do nome
-        if (fscanf(arquivoLista, "%lld\n", &matricula) != EOF) {  // Ler a matrícula
+    while (! feof(arquivoLista)) {  
+        // Ler o nome
+        fscanf(arquivoLista, " %99[^\n]s" , nome);
+        // nome[strcspn(nome, "\n")] = 0;  // Remover o '\n' do nome
+        if (! feof(arquivoLista)) {  
+            // Ler a matrícula
+            fscanf(arquivoLista, "%lld" , &matricula);
             arvore->raiz = inserirNo(arvore->raiz, matricula, nome);  // Inserir na árvore binária
             arvore->tamanho++;
         }
